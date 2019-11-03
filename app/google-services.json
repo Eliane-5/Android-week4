@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "816124916317",
+    "firebase_url": "https://crafty-pictures.firebaseio.com",
+    "project_id": "crafty-pictures",
+    "storage_bucket": "crafty-pictures.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816124916317:android:518b6be36ae17bab3a93b4",
+        "android_client_info": {
+          "package_name": "com.moringaschool.craftypictures"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816124916317-r1q4htiko127gdlh7tosnqi8aurflsug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.craftypictures",
+            "certificate_hash": "49f4dcf013e4606296206c25d03838324427067a"
+          }
+        },
+        {
+          "client_id": "816124916317-93306k9cpjduh89dk06c50gb7bnee3f1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvvBpdNAZAmJyA5TF8oFgP8gBuPV1aY94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816124916317-93306k9cpjduh89dk06c50gb7bnee3f1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

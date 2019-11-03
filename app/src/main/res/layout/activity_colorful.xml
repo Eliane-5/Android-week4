@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/row1"
+        android:layout_weight="6"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+        android:id="@+id/color1"
+        android:layout_width="170dp"
+        android:layout_height="205dp"
+        android:src="@drawable/color5" />
+
+        <ImageView
+        android:id="@+id/color2"
+        android:layout_width="170dp"
+        android:layout_height="205dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/color6" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row2"
+        android:layout_weight="6"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/color3"
+            android:layout_width="170dp"
+            android:layout_height="205dp"
+            android:src="@drawable/color3"
+            android:layout_marginTop="200dp"/>
+
+        <ImageView
+            android:id="@+id/color4"
+            android:layout_width="170dp"
+            android:layout_height="205dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/color4"
+            android:layout_marginTop="200dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
