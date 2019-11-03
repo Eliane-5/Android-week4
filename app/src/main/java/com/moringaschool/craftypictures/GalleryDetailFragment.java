@@ -49,6 +49,7 @@ public class GalleryDetailFragment extends Fragment implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mGallery = Parcels.unwrap(getArguments().getParcelable("gallery"));
+        setHasOptionsMenu(true);
     }
 
     @Override
