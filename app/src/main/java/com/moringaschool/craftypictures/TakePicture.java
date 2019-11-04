@@ -4,15 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.os.Environment.getExternalStoragePublicDirectory;
 
 public class TakePicture extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.pictureButton) Button mPictureButton;
@@ -48,7 +55,15 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
     }
 
     private File createPictureFile() {
-
-        return null;
+        String name = new SimpleDateFormat("yyyyMMdd_MMmmss").format(new Date());
+        File storageDir = getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File image = null;
+        try {
+            image = File.createTempFile(name, ".jpg", storageDir);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d("my Log", "Exception"+ e.toString());
+        }
+        return image;
     }
 }
