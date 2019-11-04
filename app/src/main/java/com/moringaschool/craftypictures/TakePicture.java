@@ -4,10 +4,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -35,9 +37,10 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_picture);
         ButterKnife.bind(this);
-
+        if (Build.VERSION.SDK_INT >= 23){
+            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+        }
         mPictureButton.setOnClickListener(this);
-
     }
 
     @Override
@@ -65,7 +68,7 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
             pictureFile = createPictureFile();
             if (pictureFile != null){
                 pathToFile = pictureFile.getAbsolutePath();
-                Uri pictureUri = FileProvider.getUriForFile(TakePicture.this,"fgjkdjk",pictureFile);
+                Uri pictureUri = FileProvider.getUriForFile(TakePicture.this,"com.moringaschool.craftypictures.FileProvider",pictureFile);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
                 startActivityForResult(intent,1);
             }
