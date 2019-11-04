@@ -27,7 +27,11 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         if (v == mPictureButton){
-
+            takePictureAction();
         }
+    }
+
+    private void takePictureAction() {
+
     }
 }
