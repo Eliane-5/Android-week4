@@ -1,8 +1,10 @@
 package com.moringaschool.craftypictures;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -46,10 +48,12 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(getPackageManager())!= null){
             File pictureFile = null;
-            try {
-                pictureFile = createPictureFile();
-            }catch (Exception){
-
+            pictureFile = createPictureFile();
+            if (pictureFile != null){
+                String pathToFile = pictureFile.getAbsolutePath();
+                Uri pictureUri = FileProvider.getUriForFile(TakePicture.this,"fgjkdjk",pictureFile);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
+                startActivityForResult(intent,1);
             }
         }
     }
