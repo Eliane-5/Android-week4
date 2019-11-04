@@ -1,9 +1,12 @@
 package com.moringaschool.craftypictures;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -26,7 +29,7 @@ import static android.os.Environment.getExternalStoragePublicDirectory;
 public class TakePicture extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.pictureButton) Button mPictureButton;
     @BindView(R.id.capturedImage) ImageView mCapturedImage;
-
+    String pathToFile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,17 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
 
         mPictureButton.setOnClickListener(this);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_OK){
+            if (requestCode == 1){
+                Bitmap bitmap = BitmapFactory.decodeFile(pathToFile);
+                mCapturedImage.setImageBitmap(bitmap);
+            }
+        }
     }
 
     @Override
@@ -50,7 +64,7 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
             File pictureFile = null;
             pictureFile = createPictureFile();
             if (pictureFile != null){
-                String pathToFile = pictureFile.getAbsolutePath();
+                pathToFile = pictureFile.getAbsolutePath();
                 Uri pictureUri = FileProvider.getUriForFile(TakePicture.this,"fgjkdjk",pictureFile);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
                 startActivityForResult(intent,1);
