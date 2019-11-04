@@ -65,15 +65,15 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
     }
 
     private void takePictureAction() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (intent.resolveActivity(getPackageManager())!= null){
+        Intent takeSnap = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takeSnap.resolveActivity(getPackageManager())!= null){
             File pictureFile = null;
             pictureFile = createPictureFile();
             if (pictureFile != null){
                 pathToFile = pictureFile.getAbsolutePath();
-                Uri pictureUri = FileProvider.getUriForFile(TakePicture.this,"com.moringaschool.craftypictures.FileProvider",pictureFile);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
-                startActivityForResult(intent,1);
+                Uri pictureUri = FileProvider.getUriForFile(TakePicture.this,"com.moringaschool.craftypictures.FileProvider", pictureFile);
+                takeSnap.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
+                startActivityForResult(takeSnap,1);
             }
         }
     }

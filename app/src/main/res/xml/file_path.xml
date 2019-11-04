@@ -2,5 +2,5 @@
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
 <external-path
     name="Crafty Images"
-    path="Images/"></external-path>
+    path="Pictures/"></external-path>
 </paths>
