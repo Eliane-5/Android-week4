@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.io.File;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -35,5 +37,18 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
 
     private void takePictureAction() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (intent.resolveActivity(getPackageManager())!= null){
+            File pictureFile = null;
+            try {
+                pictureFile = createPictureFile();
+            }catch (Exception){
+
+            }
+        }
+    }
+
+    private File createPictureFile() {
+
+        return null;
     }
 }
