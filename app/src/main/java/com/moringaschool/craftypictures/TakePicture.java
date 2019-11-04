@@ -37,6 +37,9 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_picture);
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+
         if (Build.VERSION.SDK_INT >= 23){
             requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
         }

@@ -31,6 +31,7 @@ public class ChoiceActivity extends AppCompatActivity {
     @BindView(R.id.blackAndWhite) Button mBlackAndWhiteButton;
     @BindView(R.id.colorful) Button mColorfulButton;
     @BindView(R.id.exhibition) Button mExhibitButton;
+    @BindView(R.id.takePicture) Button mTakePicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,15 @@ public class ChoiceActivity extends AppCompatActivity {
                 }
             }
         };
+
+        mTakePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChoiceActivity.this, TakePicture.class);
+                startActivity(intent);
+                Toast.makeText(ChoiceActivity.this, "Click on the button to take a picture!", Toast.LENGTH_LONG).show();
+            }
+        });
 
         mBlackAndWhiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
