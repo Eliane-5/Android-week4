@@ -20,10 +20,14 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_take_picture);
         ButterKnife.bind(this);
 
+        mPictureButton.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
+        if (v == mPictureButton){
 
+        }
     }
 }
