@@ -1,4 +1,4 @@
-# Crafty Pictures **(version 3)**
+# Crafty Pictures **(version 4)**
 
 #### Crafty pictures is a mobile application in development that will allow it's user to either post their pictures artframes on this platform and be able to sell them or buy other items via that same platform.
 
@@ -26,4 +26,6 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. Copyright (c) 2019 **Kamana Irankunda Eliane**
 
 ### comments
-[see this website for more information on custom buttons](https://www.codebrainer.com/blog/13-designs-for-buttons-every-android-beginner-should-know)
+* [see this website for more information on custom buttons](https://www.codebrainer.com/blog/13-designs-for-buttons-every-android-beginner-should-know)
+* [used this tutorial for more insight into implementing a camera in the app](https://www.youtube.com/watch?v=32RG4lR0PMQ)
+
