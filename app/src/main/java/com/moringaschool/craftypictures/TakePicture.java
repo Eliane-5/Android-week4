@@ -31,7 +31,9 @@ import static android.os.Environment.getExternalStoragePublicDirectory;
 public class TakePicture extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.pictureButton) Button mPictureButton;
     @BindView(R.id.capturedImage) ImageView mCapturedImage;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
     String pathToFile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,14 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
             if (requestCode == 1){
                 Bitmap bitmap = BitmapFactory.decodeFile(pathToFile);
                 mCapturedImage.setImageBitmap(bitmap);
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                mCapturedImage.setImageBitmap(imageBitmap);
             }
+        }
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bitmap bitmap = BitmapFactory.decodeFile(pathToFile);
+            mCapturedImage.setImageBitmap(bitmap);
         }
     }
 
@@ -81,13 +90,13 @@ public class TakePicture extends AppCompatActivity implements View.OnClickListen
     private File createPictureFile() {
         String name = new SimpleDateFormat("yyyyMMdd_MMmmss").format(new Date());
         File storageDir = getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        File image = null;
+        File picture = null;
         try {
-            image = File.createTempFile(name, ".jpg", storageDir);
+            picture = File.createTempFile(name, ".png", storageDir);
         } catch (IOException e) {
             e.printStackTrace();
             Log.d("my Log", "Exception"+ e.toString());
         }
-        return image;
+        return picture;
     }
 }
